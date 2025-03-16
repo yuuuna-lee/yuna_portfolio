@@ -36,13 +36,13 @@ function RetroMonitor({ position = [0, 0, 0] }) {
         <meshStandardMaterial color="#555555" roughness={0.3} metalness={0.5} />
       </mesh>
       
-      {/* 모니터 화면 - 녹색에서 흰색/밝은 회색으로 변경 */}
+      {/* 모니터 화면 - 흰색에서 초록색으로 변경 */}
       <mesh position={[0, 0, 0.06]} ref={screenRef}>
         <boxGeometry args={[1.6, 1.2, 0.01]} />
         <meshStandardMaterial 
-          color="#ffffff" 
-          emissive="#ffffff" 
-          emissiveIntensity={1.0} 
+          color="#00ff00" 
+          emissive="#00ff00" 
+          emissiveIntensity={0.8} 
           roughness={0.2}
         />
       </mesh>
@@ -59,8 +59,8 @@ function RetroMonitor({ position = [0, 0, 0] }) {
         <meshStandardMaterial color="#666666" roughness={0.5} metalness={0.3} />
       </mesh>
       
-      {/* 모니터 주변 글로우 효과 추가 - 흰색으로 변경 */}
-      <pointLight position={[0, 0, 0.2]} intensity={0.5} color="#ffffff" distance={1.5} />
+      {/* 모니터 주변 글로우 효과 추가 - 초록색으로 변경 */}
+      <pointLight position={[0, 0, 0.2]} intensity={0.5} color="#00ff00" distance={1.5} />
     </group>
   );
 }
@@ -96,82 +96,18 @@ function RetroKeyboard({ position = [0, -1.2, 0.5] }) {
   );
 }
 
-// HTML 기반 터미널 텍스트 컴포넌트
-function TerminalText({ position = [0, 0.25, 0.07] }) {
-  const [displayedText, setDisplayedText] = useState([]);
-  const [isTyping, setIsTyping] = useState(true);
-  
-  useEffect(() => {
-    const bootSequence = [
-      "LEE YUNA'S PORTFOLIO v1.0",
-      "===================="
-    ];
-    
-    // 초기화
-    setDisplayedText([]);
-    
-    // 단순화된 타이핑 효과 구현
-    let currentLineIndex = 0;
-    let currentCharIndex = 0;
-    const tempText = Array(bootSequence.length).fill("");
-    
-    const typingTimer = setInterval(() => {
-      if (currentLineIndex < bootSequence.length) {
-        const currentLine = bootSequence[currentLineIndex];
-        
-        if (currentCharIndex < currentLine.length) {
-          // 현재 줄에 한 글자 추가
-          tempText[currentLineIndex] = currentLine.substring(0, currentCharIndex + 1);
-          setDisplayedText([...tempText]);
-          currentCharIndex++;
-        } else {
-          // 현재 줄 타이핑 완료, 다음 줄로 이동
-          currentLineIndex++;
-          currentCharIndex = 0;
-          
-          // 모든 줄 타이핑 완료 확인
-          if (currentLineIndex >= bootSequence.length) {
-            clearInterval(typingTimer);
-            setIsTyping(false);
-          }
-        }
-      }
-    }, 80); // 타이핑 속도를 30ms에서 80ms로 변경 (더 느리게)
-    
-    return () => clearInterval(typingTimer);
-  }, []);
-  
+// HTML 기반 터미널 텍스트 컴포넌트 - 제거하고 대신 스캔라인 효과 추가
+function RetroScanlines({ position = [0, 0, 0.07] }) {
   return (
     <Html position={position} transform center distanceFactor={1.5}>
       <div style={{
         width: '500px',
-        fontFamily: "'Courier New', monospace",
-        color: '#222222',
-        padding: '10px',
-        overflow: 'hidden',
-        transform: 'translateX(0%) translateY(-50%)',
-      }}>
-        {displayedText.map((line, index) => (
-          <div key={index} style={{ 
-            marginBottom: index < 2 ? '10px' : '6px',
-            display: 'flex',
-            justifyContent: 'center'
-          }}>
-            <span style={{ 
-              display: 'inline-block', 
-              textAlign: 'left',
-              fontFamily: "'Courier New', monospace",
-              fontSize: index < 2 ? '22px' : '18px',
-              fontWeight: index < 2 ? 'bold' : 'normal',
-              letterSpacing: index < 2 ? '1px' : '0.5px',
-              lineHeight: index < 2 ? '1.5' : '1.3',
-              textShadow: '0 0 2px rgba(0,0,0,0.2)'
-            }}>
-              {line}
-            </span>
-          </div>
-        ))}
-      </div>
+        height: '375px',
+        background: 'linear-gradient(transparent 50%, rgba(0, 0, 0, 0.1) 50%)',
+        backgroundSize: '100% 4px',
+        pointerEvents: 'none',
+        opacity: 0.5
+      }}></div>
     </Html>
   );
 }
@@ -248,7 +184,7 @@ export function ComputerScene({ modelPath = null }) {
       {/* 레트로 컴퓨터 세트 */}
       <RetroMonitor position={[0, 0.5, 0]} />
       <RetroKeyboard />
-      <TerminalText position={[0, 0.25, 0.07]} />
+      <RetroScanlines position={[0, 0.25, 0.07]} />
       
       {/* 3D 모델 뷰어 */}
       {modelPath && (
