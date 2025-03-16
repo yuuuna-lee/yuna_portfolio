@@ -17,7 +17,7 @@ function App() {
   const [currentParagraph, setCurrentParagraph] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const paragraphs = [
-    "프론트엔드 개발자로서 웹과 AI, 그리고 언어의 접점을 탐구하고 있습니다.",
+    "웹과 ,AI, 그리고 언어의 접점을 탐구하고 있습니다.",
     "\"보다 직관적이고 유용한 웹 서비스\"를 만드는 것이 목표이며, React, TailwindCSS, Three.js 등을 활용하여 사용자 경험을 극대화하는 인터페이스를 설계합니다.",
     "언어학과 AI에 대한 깊은 관심을 바탕으로, 기술을 통해 더 효과적인 커뮤니케이션을 가능하게 만드는 일을 꿈꿉니다."
   ];
