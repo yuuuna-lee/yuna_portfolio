@@ -2,7 +2,7 @@ import { useState, useEffect, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import './App.css'
 import Background from './pages/Background'
-import Computer from './components/computer'
+import Computer from './components/Computer.jsx'
 
 function App() {
   const [zoom, setZoom] = useState(2.5) // 배경 별 줌 레벨
