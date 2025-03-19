@@ -17,7 +17,9 @@ function App() {
   const [currentParagraph, setCurrentParagraph] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const paragraphs = [
-    "프론트엔드는 단순한 디자인이 아닌, 기술을 전달하는 눈이다. 라는 개발철학을 갖고 개발에 임하고 있습니다."
+    "안녕하세요, 저는 이유나입니다.",
+    "저는 프론트엔드는 단순한 화면 구현이 아니라, 기술이 사용자에게 제대로 전달되도록 만드는 핵심 역할이라고 생각합니다.",
+    "프론트엔드가 부족하면 아무리 뛰어난 기술도 외면받는 죽은 기술이 될 수 있기에, 저는 사용자 경험을 깊이 고민하며, 기술이 제대로 쓰이도록 만드는 개발자가 되고자 합니다."
   ];
 
   // 스크롤 이벤트 핸들러
@@ -57,7 +59,8 @@ function App() {
       if (!isTyping) return;
       
       if (i < paragraphs[currentParagraph].length) {
-        setDisplayText(prev => prev + paragraphs[currentParagraph].charAt(i));
+        // 한글 문자를 올바르게 처리하기 위해 slice 사용
+        setDisplayText(prev => prev + paragraphs[currentParagraph].slice(i, i + 1));
         i++;
       } else {
         isTyping = false;
