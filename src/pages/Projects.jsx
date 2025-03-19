@@ -35,6 +35,26 @@ const Projects = ({ onClose }) => {
             <span style={{ color: '#ffffff' }}>협업 형태: 2인 팀 프로젝트</span>
           </li>
         </ul>
+        <a 
+          href="https://chromewebstore.google.com/detail/otfit/cfdepeimbnkpaebbcfebmdgfnfanlckp" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          style={{ 
+            display: 'inline-block',
+            color: '#000000', 
+            background: '#00ff00',
+            padding: '6px 12px',
+            borderRadius: '4px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            fontSize: '14px',
+            letterSpacing: '1px',
+            boxShadow: '0 0 10px rgba(0,255,0,0.5)'
+          }}
+        >
+          View Project
+        </a>
       </div>
       
       <div style={{ 
