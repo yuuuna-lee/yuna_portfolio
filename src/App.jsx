@@ -17,7 +17,7 @@ function App() {
   const [currentParagraph, setCurrentParagraph] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const paragraphs = [
-    "인간 언어학과 프로그래밍 언어 모두에 능숙한 프론트엔드 개발자로서, 뛰어난 소통 능력을 바탕으로 가치 있는 서비스를 개발합니다."
+    "프론트엔드는 단순한 디자인이 아닌, 기술을 전달하는 눈이다. 라는 개발철학을 갖고 개발에 임하고 있습니다."
   ];
 
   // 스크롤 이벤트 핸들러
