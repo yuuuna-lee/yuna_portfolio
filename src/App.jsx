@@ -17,9 +17,7 @@ function App() {
   const [currentParagraph, setCurrentParagraph] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const paragraphs = [
-    "웹과 ,AI, 그리고 언어의 접점을 탐구하고 있습니다.",
-    "\"보다 직관적이고 유용한 웹 서비스\"를 만드는 것이 목표이며, React, TailwindCSS, Three.js 등을 활용하여 사용자 경험을 극대화하는 인터페이스를 설계합니다.",
-    "언어학과 AI에 대한 깊은 관심을 바탕으로, 기술을 통해 더 효과적인 커뮤니케이션을 가능하게 만드는 일을 꿈꿉니다."
+    "인간 언어학과 프로그래밍 언어 모두에 능숙한 프론트엔드 개발자로서, 뛰어난 소통 능력을 바탕으로 가치 있는 서비스를 개발합니다."
   ];
 
   // 스크롤 이벤트 핸들러
@@ -53,24 +51,34 @@ function App() {
     if (isTypingComplete) return;
     
     let i = 0;
+    let isTyping = true;
+    
     const typingInterval = setInterval(() => {
+      if (!isTyping) return;
+      
       if (i < paragraphs[currentParagraph].length) {
         setDisplayText(prev => prev + paragraphs[currentParagraph].charAt(i));
         i++;
       } else {
+        isTyping = false;
         clearInterval(typingInterval);
+        
         if (currentParagraph < paragraphs.length - 1) {
           setTimeout(() => {
             setDisplayText(prev => prev + "\n\n");
             setCurrentParagraph(prev => prev + 1);
+            isTyping = true;
           }, 500);
         } else {
           setIsTypingComplete(true);
         }
       }
-    }, 50); // 타이핑 속도를 더 느리게 조정 (30ms → 50ms)
+    }, 50);
     
-    return () => clearInterval(typingInterval);
+    return () => {
+      clearInterval(typingInterval);
+      isTyping = false;
+    };
   }, [currentParagraph, isTypingComplete]);
 
   return (
