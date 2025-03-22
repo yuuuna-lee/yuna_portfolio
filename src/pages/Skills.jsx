@@ -2,7 +2,24 @@ import React from 'react';
 
 const Skills = ({ onClose }) => {
   return (
-    <div>
+    <div style={{
+      maxHeight: '80vh',  // 뷰포트 높이의 80%로 제한
+      overflowY: 'auto',  // 세로 스크롤 활성화
+      padding: '20px',    // 내부 여백
+      // 스크롤바 스타일링
+      scrollbarWidth: 'thin',  // Firefox를 위한 스크롤바 스타일
+      scrollbarColor: '#00ff00 transparent',  // Firefox를 위한 스크롤바 색상
+      '&::-webkit-scrollbar': {
+        width: '8px',
+      },
+      '&::-webkit-scrollbar-track': {
+        background: 'transparent',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        background: '#00ff00',
+        borderRadius: '4px',
+      }
+    }}>
       <div style={{ 
         marginBottom: '20px', 
         padding: '15px', 
