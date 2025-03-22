@@ -3,24 +3,9 @@ import React from 'react';
 const Skills = ({ onClose }) => {
   return (
     <div style={{
-      maxHeight: '80vh',  // 뷰포트 높이의 80%로 제한
-      overflowY: 'auto',  // 세로 스크롤 활성화
-      padding: '20px',    // 내부 여백
-      // 스크롤바 스타일링
-      scrollbarWidth: 'thin',  // Firefox를 위한 스크롤바 스타일
-      scrollbarColor: '#00ff00 transparent',  // Firefox를 위한 스크롤바 색상
-      // 터치패드 스크롤 개선을 위한 속성 추가
-      WebkitOverflowScrolling: 'touch',  // 부드러운 스크롤 효과
-      '&::-webkit-scrollbar': {
-        width: '8px',
-      },
-      '&::-webkit-scrollbar-track': {
-        background: 'transparent',
-      },
-      '&::-webkit-scrollbar-thumb': {
-        background: '#00ff00',
-        borderRadius: '4px',
-      }
+      height: '100%',  // 부모 컨테이너의 전체 높이 사용
+      padding: '20px',
+      touchAction: 'pan-y',  // 수직 터치 제스처 활성화
     }}>
       <div style={{ 
         marginBottom: '20px', 

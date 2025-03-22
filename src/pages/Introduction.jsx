@@ -3,10 +3,9 @@ import React from 'react';
 const Introduction = ({ onClose }) => {
   return (
     <div style={{
-      maxHeight: '80vh',
-      overflowY: 'auto',
+      height: '100%',
       padding: '20px',
-      WebkitOverflowScrolling: 'touch',
+      touchAction: 'pan-y',
     }}>
       <h3 style={{ 
         color: '#00ff00', 
