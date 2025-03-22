@@ -17,7 +17,7 @@ function App() {
   const [currentParagraph, setCurrentParagraph] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const paragraphs = [
-    " 프론트엔드는 단순한 화면 구현이 아니라, 기술이 사용자에게 제대로 전달되도록 만드는 핵심 역할이라고 생각합니다.",
+    "",
     " 프론트엔드가 부족하면 아무리 뛰어난 기술도 외면받는 죽은 기술이 될 수 있기에, 저는 사용자 경험을 깊이 고민하며, 기술이 제대로 쓰이도록 만드는 개발자가 되고자 합니다."
   ];
 
@@ -102,11 +102,18 @@ function App() {
         transform: 'translateX(-50%)',
         zIndex: 10,
         display: 'flex',
-        gap: '20px',
+        gap: '10px',
         background: 'rgba(0,0,0,0.7)',
-        padding: '10px 20px',
+        padding: '8px 12px',
         borderRadius: '30px',
-        boxShadow: '0 0 10px rgba(0,255,0,0.3)'
+        boxShadow: '0 0 10px rgba(0,255,0,0.3)',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        maxWidth: '90%',
+        '@media (max-width: 768px)': {
+          fontSize: '14px',
+          gap: '8px',
+        }
       }}>
         {['home', 'introduction', 'projects', 'skills', 'contact'].map(section => (
           <button
@@ -204,11 +211,16 @@ function App() {
           transform: 'translateY(-50%)',
           maxWidth: '40%',
           zIndex: 10,
-          backgroundColor: 'rgba(0, 0, 0, 0.7)', // 배경 추가하여 가독성 향상
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
           padding: '20px',
           borderRadius: '10px',
-          textAlign: 'left', // 왼쪽 정렬 추가
-          fontFamily: 'DOSGothic, monospace' // DOSGothic 폰트 적용
+          textAlign: 'left',
+          fontFamily: 'DOSGothic, monospace',
+          '@media (max-width: 768px)': {
+            left: '5%',
+            maxWidth: '90%',
+            padding: '15px',
+          }
         }}>
           <h3 style={{ 
             fontSize: '2.5rem', 

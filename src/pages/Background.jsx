@@ -123,7 +123,18 @@ function Stars({ zoom, ...props }) {
 
 export default function Background({ zoom = 1 }) {
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, background: '#000000' }}>
+    <div style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100%', 
+      height: '100%', 
+      zIndex: -1, 
+      background: '#000000',
+      '@media (max-width: 768px)': {
+        overflow: 'hidden', // 모바일에서 스크롤 방지
+      }
+    }}>
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Stars zoom={zoom} />
       </Canvas>

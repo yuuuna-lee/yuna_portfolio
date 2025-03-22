@@ -6,11 +6,17 @@ const Introduction = ({ onClose }) => {
       height: '100%',
       padding: '20px',
       touchAction: 'pan-y',
+      '@media (max-width: 768px)': {
+        padding: '15px',
+      }
     }}>
       <h3 style={{ 
         color: '#00ff00', 
         marginBottom: '15px',
-        fontSize: '20px'
+        fontSize: '20px',
+        '@media (max-width: 768px)': {
+          fontSize: '18px',
+        }
       }}>
         안녕하세요, 이유나입니다!
       </h3>
@@ -53,7 +59,11 @@ const Introduction = ({ onClose }) => {
             padding: '12px',
             border: '1px solid rgba(0, 255, 0, 0.3)',
             borderRadius: '5px',
-            background: 'rgba(0, 20, 0, 0.3)'
+            background: 'rgba(0, 20, 0, 0.3)',
+            '@media (max-width: 768px)': {
+              padding: '10px',
+              fontSize: '14px',
+            }
           }}>
             <p style={{ color: '#ffffff', fontWeight: 'bold' }}>
               <span style={{ color: '#00ff00' }}>2024 - 현재</span> | 삼성 청년 SW 아카데미 (SSAFY)
