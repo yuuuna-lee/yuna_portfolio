@@ -35,6 +35,10 @@ const Skills = ({ onClose }) => {
           </li>
           <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'flex-start' }}>
             <span style={{ color: '#00ff00', marginRight: '8px' }}>▶</span>
+            <span style={{ color: '#ffffff' }}>TypeScript (정적 타입 시스템, 타입 안정성)</span>
+          </li>
+          <li style={{ marginBottom: '6px', display: 'flex', alignItems: 'flex-start' }}>
+            <span style={{ color: '#00ff00', marginRight: '8px' }}>▶</span>
             <span style={{ color: '#ffffff' }}>HTML5 & CSS3 (웹 표준, 반응형 웹 개발)</span>
           </li>
           <li style={{ display: 'flex', alignItems: 'flex-start' }}>
