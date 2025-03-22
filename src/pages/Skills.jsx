@@ -9,6 +9,8 @@ const Skills = ({ onClose }) => {
       // 스크롤바 스타일링
       scrollbarWidth: 'thin',  // Firefox를 위한 스크롤바 스타일
       scrollbarColor: '#00ff00 transparent',  // Firefox를 위한 스크롤바 색상
+      // 터치패드 스크롤 개선을 위한 속성 추가
+      WebkitOverflowScrolling: 'touch',  // 부드러운 스크롤 효과
       '&::-webkit-scrollbar': {
         width: '8px',
       },

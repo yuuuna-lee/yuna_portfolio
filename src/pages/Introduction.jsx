@@ -2,7 +2,12 @@ import React from 'react';
 
 const Introduction = ({ onClose }) => {
   return (
-    <div>
+    <div style={{
+      maxHeight: '80vh',
+      overflowY: 'auto',
+      padding: '20px',
+      WebkitOverflowScrolling: 'touch',
+    }}>
       <h3 style={{ 
         color: '#00ff00', 
         marginBottom: '15px',

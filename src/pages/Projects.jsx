@@ -2,7 +2,12 @@ import React from 'react';
 
 const Projects = ({ onClose }) => {
   return (
-    <div>
+    <div style={{
+      maxHeight: '80vh',
+      overflowY: 'auto',
+      padding: '20px',
+      WebkitOverflowScrolling: 'touch',
+    }}>
       <div style={{ 
         marginBottom: '25px', 
         padding: '15px', 
